@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Image</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        label, input, select {
+            margin: 10px 0;
+        }
+        input[type="file"], select, input[type="submit"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #1e88e5;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #1565c0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Select Image:</label>
+        <input type="file" name="file" required>
+        <label for="method">Select Method:</label>
+        <select name="method" id="method" required>
+            <option value="pixelate">Pixelate</option>
+            <option value="blur">Blur</option>
+            <option value="gaussian_blur">Gaussian Blur</option>
+            <option value="median_blur">Median Blur</option>
+            <option value="block">Block</option>
+            <option value="image">Image</option>
+        </select>
+        <label for="overlay">Select Overlay (optional):</label>
+        <input type="file" name="overlay">
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
